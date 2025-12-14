@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer's Website Ideation - Sitemap & Wireframes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2B5AA0;
+            --secondary: #4A90A4;
+            --accent: #7BC5AE;
+            --dark: #1a2332;
+            --light: #f8f9fc;
+            --border: #e1e8ed;
+            --text: #2c3e50;
+            --text-light: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8f9fc 0%, #e8eef5 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+        }
+
+        .tab-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(43, 90, 160, 0.15);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* SITEMAP STYLES */
+        .sitemap {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+
+        .sitemap-level {
+            margin-bottom: 40px;
+        }
+
+        .sitemap-level h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .main-tabs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .tab-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(43, 90, 160, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(43, 90, 160, 0.3);
+        }
+
+        .tab-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-icon {
+            font-size: 1.5rem;
+        }
+
+        .tab-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .tab-card.featured {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+        }
+
+        .sub-items {
+            margin-top: 20px;
+            padding-left: 30px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .sub-item {
+            background: var(--light);
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .sub-item:hover {
+            background: white;
+            border-left-color: var(--primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .sub-item h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .sub-item ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .sub-item li {
+            padding: 6px 0;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .sub-item li:before {
+            content: "→";
+            position: absolute;
+            left: -20px;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .badge.mvp {
+            background: #FF6B6B;
+        }
+
+        .badge.phase2 {
+            background: #FFA500;
+        }
+
+        /* WIREFRAME STYLES */
+        .wireframe-section {
+            margin-bottom: 60px;
+        }
+
+        .wireframe {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .wireframe h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .mockup-browser {
+            border: 3px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .browser-bar {
+            background: var(--dark);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .browser-dot.red { background: #ff5f57; }
+        .browser-dot.yellow { background: #ffbd2e; }
+        .browser-dot.green { background: #28c840; }
+
+        .browser-url {
+            margin-left: 20px;
+            background: rgba(255,255,255,0.1);
+            padding: 6px 16px;
+            border-radius: 6px;
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+
+        .mockup-content {
+            padding: 40px;
+            background: #fafbfc;
+        }
+
+        .mockup-nav {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .mockup-nav-item {
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .mockup-nav-item.active {
+            color: var(--primary);
+        }
+
+        .mockup-nav-item.active:after {
+            content: '';
+            position: absolute;
+            bottom: -22px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .mockup-hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .mockup-hero h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .mockup-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .mockup-cta {
+            display: inline-flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .mockup-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .mockup-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .mockup-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .mockup-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .mockup-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .mockup-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .mockup-section h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .feature-item {
+            padding: 15px;
+            background: var(--light);
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .priority-label {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .priority-high {
+            background: #ffebeb;
+            color: #d63031;
+        }
+
+        .priority-medium {
+            background: #fff3e0;
+            color: #ff9800;
+        }
+
+        .priority-low {
+            background: #e8f5e9;
+            color: #4caf50;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .info-box h4 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .warning-box h4 {
+            color: #f57c00;
+            margin-bottom: 10px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .mockup-content {
+                padding: 20px;
+            }
+
+            .mockup-hero {
+                padding: 40px 20px;
+            }
+
+            .mockup-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .mockup-cta {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 Alzheimer's Prevention Website</h1>
+        <p class="subtitle">Complete Sitemap & Wireframe Documentation</p>
+
+        <div class="tab-switcher">
+            <button class="tab-btn active" onclick="switchTab('sitemap')">📊 Full Sitemap</button>
+            <button class="tab-btn" onclick="switchTab('wireframes')">🎨 Key Wireframes</button>
+            <button class="tab-btn" onclick="switchTab('priorities')">⭐ Build Priorities</button>
+        </div>
+
+        <!-- SITEMAP SECTION -->
+        <div id="sitemap" class="content-section active">
+            <div class="sitemap">
+                <div class="sitemap-level">
+                    <h2>🏠 Main Navigation (8 Tabs)</h2>
+                    <div class="main-tabs">
+                        <div class="tab-card">
+                            <h3><span class="tab-icon">🏠</span>Home</h3>
+                            <p>Trust-building landing with immediate CTAs and value proposition</p>
+                            <span class="badge mvp">MVP</span>
+                        </div>
+                        <div class="tab-card">
+                            <h3><span class="tab-icon">🛡️</span>Understand & Prevent</h3>
+                            <p>Education on Alzheimer's, risk factors, and prevention strategies</p>
+                            <span class="badge mvp">MVP</span>
+                        </div>
+                        <div class="tab-card featured">
+                            <h3><span class="tab-icon">🧪</span>Self-Checks & Tools</h3>
+                            <p>YOUR PRODUCT SHOWCASE - Cognitive screening, trackers, AI assistant</p>
+                            <span class="badge mvp">MVP</span>
+                        </div>
+                        <div class="tab-card">
+                            <h3><span class="tab-icon">❤️</span>For Caregivers</h3>
+                            <p>Support resources for those caring for Alzheimer's patients</p>
+                            <span class="badge phase2">Phase 2</span>
+                        </div>
+                        <div class="tab-card">
+                            <h3><span class="tab-icon">🔬</span>Clinical Trials & Research</h3>
+                            <p>Trial finder and participation information</p>
+                            <span class="badge phase2">Phase 2</span>
+                        </div>
+                        <div class="tab-card">
+                            <h3><span class="tab-icon">📈</span>Our Research & Progress</h3>
+                            <p>Showcase your credibility - projects, publications, collaborations</p>
+                            <span class="badge mvp">MVP</span>
+                        </div>
+                        <div class="tab-card">
+                            <h3><span class="tab-icon">👨‍⚕️</span>Professional Resources</h3>
+                            <p>Portal for clinicians and researchers</p>
+                            <span class="badge phase2">Phase 2</span>
+                        </div>
+                        <div class="tab-card">
+                            <h3><span class="tab-icon">ℹ️</span>About & Contact</h3>
+                            <p>Team, mission, partners, and contact forms</p>
+                            <span class="badge mvp">MVP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DETAILED SUB-SECTIONS -->
+                <div class="sitemap-level">
+                    <h2>📋 Detailed Page Structure</h2>
+
+                    <div class="sub-items">
+                        <div class="sub-item">
+                            <h4>🏠 HOME</h4>
+                            <ul>
+                                <li>Hero section with mission statement</li>
+                                <li>Primary CTA: "Take Free Brain Health Check"</li>
+                                <li>Secondary CTA: "Explore Prevention Tools"</li>
+                                <li>Quick access cards (4): What is Alzheimer's, Assess Your Risk, Find Clinical Trials, Caregiver Resources</li>
+                                <li>Impact dashboard (users screened, collaborations, resources)</li>
+                                <li>Latest research highlight snippet</li>
+                            </ul>
+                            <span class="priority-label priority-high">HIGH PRIORITY - MVP</span>
+                        </div>
+
+                        <div class="sub-item">
+                            <h4>🛡️ UNDERSTAND & PREVENT</h4>
+                            <ul>
+                                <li><strong>Understanding Alzheimer's:</strong> What is it, symptoms, stages, myths vs facts</li>
+                                <li><strong>Science of Prevention:</strong> 8 pillars of brain health (exercise, diet, sleep, cognitive activity, social engagement, blood pressure, diabetes, hearing)</li>
+                                <li><strong>Personalized Risk Profile:</strong> Interactive questionnaire (5-10 min) with traffic-light risk output</li>
+                                <li><strong>Build Your Brain-Healthy Day:</strong> Interactive daily planner with drag-and-drop activities</li>
+                            </ul>
+                            <span class="priority-label priority-high">HIGH PRIORITY - MVP</span>
+                        </div>
+
+                        <div class="sub-item" style="border-left-color: #FF6B6B;">
+                            <h4>🧪 SELF-CHECKS & TOOLS ⭐ (YOUR PRODUCT SHOWCASE)</h4>
+                            <ul>
+                                <li><strong>Cognitive Screening Tool:</strong> 10-15 min self-assessment testing memory, attention, language, executive function. Generates baseline report with tracking over time.</li>
+                                <li><strong>Daily Brain Health Tracker:</strong> Log sleep, exercise, diet, social interactions. Visual dashboard with trends. Gamification (streaks, badges).</li>
+                                <li><strong>Smart Reminder System:</strong> WhatsApp/Email/SMS reminders for walks, brain games, medications, appointments</li>
+                                <li><strong>AI Prevention Assistant:</strong> Chatbot for Alzheimer's questions with evidence-based answers and citations</li>
+                                <li><strong>Curated Knowledge Library:</strong> Searchable database of prevention articles with filters (topic, time, evidence level)</li>
+                                <li><strong>Product Roadmap:</strong> Phase 1 (current), Phase 2 (2026), Phase 3 (future)</li>
+                            </ul>
+                            <span class="priority-label priority-high">HIGHEST PRIORITY - MVP HERO FEATURE</span>
+                        </div>
+
+                        <div class="sub-item">
+                            <h4>❤️ FOR CAREGIVERS</h4>
+                            <ul>
+                                <li><strong>Getting Started:</strong> "New to caregiving?" guided pathway</li>
+                                <li><strong>Daily Care Guides:</strong> Communication strategies, managing behaviors, home safety, medication management</li>
+                                <li><strong>Emotional Wellbeing:</strong> Stress self-assessment, burnout prevention, support groups, helplines</li>
+                                <li><strong>Practical Resources:</strong> Downloadable checklists (doctor visits, care schedules), printable forms</li>
+                            </ul>
+                            <span class="priority-label priority-medium">MEDIUM PRIORITY - Phase 2</span>
+                        </div>
+
+                        <div class="sub-item">
+                            <h4>🔬 CLINICAL TRIALS & RESEARCH</h4>
+                            <ul>
+                                <li><strong>Trial Finder:</strong> Aggregated search with filters (location, age, stage, type). Links to ClinicalTrials.gov, TrialMatch, ADNI</li>
+                                <li><strong>Understanding Clinical Trials:</strong> What are they, types, phases, benefits/risks, FAQs</li>
+                                <li><strong>Prevention Registries:</strong> What they are, why join, links to GeneMatch and Brain Health Registry</li>
+                                <li><strong>How to Participate:</strong> Step-by-step guide, eligibility, questions to ask</li>
+                            </ul>
+                            <span class="priority-label priority-medium">MEDIUM PRIORITY - Phase 2</span>
+                        </div>
+
+                        <div class="sub-item">
+                            <h4>📈 OUR RESEARCH & PROGRESS ⭐ (CREDIBILITY ANCHOR)</h4>
+                            <ul>
+                                <li><strong>Vision & Mission:</strong> Long-term goal, why it matters, unique approach</li>
+                                <li><strong>Current Research Projects:</strong> Card-based layout for each project (name, goal, methodology, status, lead researcher)</li>
+                                <li><strong>Publications & Presentations:</strong> Papers, conferences, posters, preprints with DOI links and PDFs</li>
+                                <li><strong>Collaborations:</strong> Academic partners, clinical partners, technology partners, funding sources</li>
+                                <li><strong>Data & Ethics:</strong> Data collection/protection, consent process, privacy policy, ethics approvals</li>
+                                <li><strong>Open Science:</strong> GitHub repositories, anonymized datasets, API documentation</li>
+                            </ul>
+                            <span class="priority-label priority-high">HIGH PRIORITY - MVP</span>
+                        </div>
+
+                        <div class="sub-item">
+                            <h4>👨‍⚕️ PROFESSIONAL RESOURCES</h4>
+                            <ul>
+                                <li><strong>For Clinicians:</strong> How to use tools in practice, patient info sheets, referral process, CME/CPD</li>
+                                <li><strong>For Researchers:</strong> Collaboration opportunities, API access, data sharing protocols, joint study proposals</li>
+                                <li><strong>Educational Resources:</strong> Webinars on digital health in neurology, training modules, certification programs</li>
+                            </ul>
+                            <span class="priority-label priority-low">LOW PRIORITY - Phase 3</span>
+                        </div>
+
+                        <div class="sub-item">
+                            <h4>ℹ️ ABOUT & CONTACT</h4>
+                            <ul>
+                                <li><strong>Our Story:</strong> Why you started, problem you're solving, journey so far</li>
+                                <li><strong>Team:</strong> Founders with credentials and photos, scientific advisory board, technical team</li>
+                                <li><strong>Partners & Supporters:</strong> Hospital collaborations, NGO partnerships, academic affiliations, funding</li>
+                                <li><strong>Media & Press:</strong> News coverage, awards, speaking engagements</li>
+                                <li><strong>Contact:</strong> General inquiries, clinical collaboration, research partnership, media, support forms</li>
+                            </ul>
+                            <span class="priority-label priority-high">HIGH PRIORITY - MVP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4>🎯 Design Principles for Global Credibility</h4>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li><strong>Clean, medical-grade aesthetic:</strong> Light backgrounds (white/light blue), strong sans-serif typography, ample whitespace</li>
+                        <li><strong>Trust signals everywhere:</strong> Security badges, partner logos, credentials, data privacy certifications</li>
+                        <li><strong>Large buttons and text</strong> (many users 50+)</li>
+                        <li><strong>Audience segmentation on homepage:</strong> "I'm worried about my memory" / "I'm a caregiver" / "I'm a professional"</li>
+                        <li><strong>Sticky CTAs:</strong> "Take Brain Health Check" button visible on every page</li>
+                        <li><strong>Mobile-first design</strong></li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Critical Safety Requirements</h4>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li><strong>Disclaimers on every tool page:</strong> "This is a screening tool, not a medical diagnosis. Please consult your doctor."</li>
+                        <li><strong>Data security badges:</strong> SSL, HIPAA-compliant (if handling health data), ISO certifications</li>
+                        <li><strong>Emergency resources:</strong> Always visible crisis hotline, suicide prevention numbers</li>
+                        <li><strong>Source citations:</strong> Every claim backed by research with links</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- WIREFRAMES SECTION -->
+        <div id="wireframes" class="content-section">
+            <div class="wireframe-section">
+                <div class="wireframe">
+                    <h2>🏠 Home Page Wireframe</h2>
+                    <div class="mockup-browser">
+                        <div class="browser-bar">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                            <div class="browser-url">www.yoursite.com</div>
+                        </div>
+                        <div class="mockup-content">
+                            <div class="mockup-nav">
+                                <div class="mockup-nav-item active">Home</div>
+                                <div class="mockup-nav-item">Understand & Prevent</div>
+                                <div class="mockup-nav-item">Self-Checks & Tools</div>
+                                <div class="mockup-nav-item">For Caregivers</div>
+                                <div class="mockup-nav-item">Clinical Trials & Research</div>
+                                <div class="mockup-nav-item">Our Research & Progress</div>
+                                <div class="mockup-nav-item">Professional Resources</div>
+                                <div class="mockup-nav-item">About & Contact</div>
+                            </div>
+
+                            <div class="mockup-hero">
+                                <h1>Preventing Alzheimer's Through Science & Technology</h1>
+                                <p>Evidence-based tools for brain health assessment and prevention</p>
+                                <div class="mockup-cta">
+                                    <button class="btn btn-primary">Take Free Brain Health Check</button>
+                                    <button class="btn btn-secondary">Explore Prevention Tools</button>
+                                </div>
+                            </div>
+
+                            <h3 style="margin-bottom: 20px; color: var(--primary);">Quick Access</h3>
+                            <div class="mockup-cards">
+                                <div class="mockup-card">
+                                    <h3>🧠 What is Alzheimer's?</h3>
+                                    <p>Learn about the disease, symptoms, and early warning signs</p>
+                                </div>
+                                <div class="mockup-card">
+                                    <h3>📊 Assess Your Risk</h3>
+                                    <p>Take our personalized risk assessment and get recommendations</p>
+                                </div>
+                                <div class="mockup-card">
+                                    <h3>🔬 Find Clinical Trials</h3>
+                                    <p>Search for prevention and treatment trials near you</p>
+                                </div>
+                                <div class="mockup-card">
+                                    <h3>❤️ Caregiver Resources</h3>
+                                    <p>Support and practical guides for caregivers</p>
+                                </div>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>📈 Our Impact</h3>
+                                <div class="feature-list">
+                                    <div class="feature-item"><strong>12,450</strong> Users Screened</div>
+                                    <div class="feature-item"><strong>15</strong> Research Collaborations</div>
+                                    <div class="feature-item"><strong>500+</strong> Prevention Resources</div>
+                                    <div class="feature-item"><strong>8</strong> Published Studies</div>
+                                </div>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>🔬 Latest Research</h3>
+                                <p>Our recent study on digital cognitive screening in diverse populations shows promising results for early risk detection. Published in Journal of Alzheimer's Research, December 2024.</p>
+                                <button class="btn btn-primary" style="margin-top: 15px; background: var(--primary); color: white;">Read Full Publication</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe">
+                    <h2>🧪 Self-Checks & Tools Page (YOUR PRODUCT SHOWCASE)</h2>
+                    <div class="mockup-browser">
+                        <div class="browser-bar">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                            <div class="browser-url">www.yoursite.com/self-checks-tools</div>
+                        </div>
+                        <div class="mockup-content">
+                            <div class="mockup-nav">
+                                <div class="mockup-nav-item">Home</div>
+                                <div class="mockup-nav-item">Understand & Prevent</div>
+                                <div class="mockup-nav-item active">Self-Checks & Tools</div>
+                                <div class="mockup-nav-item">For Caregivers</div>
+                                <div class="mockup-nav-item">Clinical Trials & Research</div>
+                                <div class="mockup-nav-item">Our Research & Progress</div>
+                                <div class="mockup-nav-item">Professional Resources</div>
+                                <div class="mockup-nav-item">About & Contact</div>
+                            </div>
+
+                            <div style="background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+                                <h1 style="color: white; font-size: 2rem; margin-bottom: 15px;">Brain Health Tools</h1>
+                                <p style="font-size: 1.1rem; opacity: 0.95;">Scientifically validated tools to assess, track, and improve your cognitive health</p>
+                            </div>
+
+                            <div class="warning-box">
+                                <h4>⚠️ Important Notice</h4>
+                                <p>These tools are for screening and educational purposes only. They do not replace professional medical diagnosis. If you have concerns, please consult a healthcare provider.</p>
+                            </div>
+
+                            <div class="mockup-section" style="border-left-color: #FF6B6B;">
+                                <h3>🧪 Cognitive Screening Tool</h3>
+                                <p><strong>10-15 minute assessment</strong> testing memory, attention, language, and executive function</p>
+                                <div class="feature-list" style="margin-top: 20px;">
+                                    <div class="feature-item">✓ Baseline cognitive score</div>
+                                    <div class="feature-item">✓ Track changes over time</div>
+                                    <div class="feature-item">✓ Personalized recommendations</div>
+                                    <div class="feature-item">✓ Downloadable report</div>
+                                </div>
+                                <button class="btn btn-primary" style="margin-top: 20px; background: #FF6B6B; color: white;">Start Brain Health Check</button>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>📊 Daily Brain Health Tracker</h3>
+                                <p>Log your daily habits and see how they impact your brain health over time</p>
+                                <div class="feature-list" style="margin-top: 20px;">
+                                    <div class="feature-item">Sleep tracking</div>
+                                    <div class="feature-item">Exercise logging</div>
+                                    <div class="feature-item">Diet quality score</div>
+                                    <div class="feature-item">Social interactions</div>
+                                    <div class="feature-item">Cognitive activities</div>
+                                    <div class="feature-item">Mood & stress levels</div>
+                                </div>
+                                <button class="btn btn-primary" style="margin-top: 20px; background: var(--primary); color: white;">Open Tracker Dashboard</button>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>🔔 Smart Reminder System</h3>
+                                <p>Get personalized reminders via WhatsApp, Email, or SMS</p>
+                                <div class="feature-list" style="margin-top: 20px;">
+                                    <div class="feature-item">Daily walk reminders</div>
+                                    <div class="feature-item">Brain game notifications</div>
+                                    <div class="feature-item">Medication alerts</div>
+                                    <div class="feature-item">Appointment reminders</div>
+                                </div>
+                                <button class="btn btn-primary" style="margin-top: 20px; background: var(--primary); color: white;">Setup Reminders</button>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>🤖 AI Prevention Assistant</h3>
+                                <p>Ask questions about Alzheimer's prevention and get evidence-based answers</p>
+                                <button class="btn btn-primary" style="margin-top: 20px; background: var(--primary); color: white;">Chat with AI Assistant</button>
+                                <span class="priority-label priority-medium" style="margin-left: 15px;">Coming in Phase 2</span>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>📚 Curated Knowledge Library</h3>
+                                <p>Search our database of prevention articles and research summaries</p>
+                                <button class="btn btn-primary" style="margin-top: 20px; background: var(--primary); color: white;">Browse Library</button>
+                            </div>
+
+                            <div class="info-box">
+                                <h4>🗺️ Product Roadmap</h4>
+                                <ul style="padding-left: 20px; margin-top: 10px;">
+                                    <li><strong>Phase 1 (Current):</strong> Prevention & screening tools ✅</li>
+                                    <li><strong>Phase 2 (2026):</strong> Early digital diagnosis support</li>
+                                    <li><strong>Phase 3 (Future):</strong> Treatment guidance with clinician collaboration</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe">
+                    <h2>🛡️ Understand & Prevent Page</h2>
+                    <div class="mockup-browser">
+                        <div class="browser-bar">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                            <div class="browser-url">www.yoursite.com/understand-prevent</div>
+                        </div>
+                        <div class="mockup-content">
+                            <div class="mockup-nav">
+                                <div class="mockup-nav-item">Home</div>
+                                <div class="mockup-nav-item active">Understand & Prevent</div>
+                                <div class="mockup-nav-item">Self-Checks & Tools</div>
+                                <div class="mockup-nav-item">For Caregivers</div>
+                                <div class="mockup-nav-item">Clinical Trials & Research</div>
+                                <div class="mockup-nav-item">Our Research & Progress</div>
+                                <div class="mockup-nav-item">Professional Resources</div>
+                                <div class="mockup-nav-item">About & Contact</div>
+                            </div>
+
+                            <div style="background: var(--primary); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+                                <h1 style="color: white; font-size: 2rem; margin-bottom: 15px;">Understanding & Preventing Alzheimer's</h1>
+                                <p style="font-size: 1.1rem; opacity: 0.95;">Learn about the disease and evidence-based strategies to reduce your risk</p>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>🧠 Understanding Alzheimer's</h3>
+                                <div class="feature-list" style="margin-top: 20px;">
+                                    <div class="feature-item">What is Alzheimer's disease?</div>
+                                    <div class="feature-item">Early symptoms & warning signs</div>
+                                    <div class="feature-item">Stages of progression</div>
+                                    <div class="feature-item">Common myths vs. facts</div>
+                                </div>
+                                <button class="btn btn-primary" style="margin-top: 20px; background: var(--primary); color: white;">Learn the Basics</button>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>🛡️ Science of Prevention: The 8 Pillars of Brain Health</h3>
+                                <div class="mockup-cards">
+                                    <div class="mockup-card">
+                                        <h3>🏃 Exercise</h3>
+                                        <p>Regular physical activity</p>
+                                    </div>
+                                    <div class="mockup-card">
+                                        <h3>💓 Blood Pressure</h3>
+                                        <p>Manage cardiovascular health</p>
+                                    </div>
+                                    <div class="mockup-card">
+                                        <h3>🥗 Diet</h3>
+                                        <p>Mediterranean-style eating</p>
+                                    </div>
+                                    <div class="mockup-card">
+                                        <h3>😴 Sleep</h3>
+                                        <p>7-9 hours quality sleep</p>
+                                    </div>
+                                    <div class="mockup-card">
+                                        <h3>🧩 Cognitive Activity</h3>
+                                        <p>Mental stimulation</p>
+                                    </div>
+                                    <div class="mockup-card">
+                                        <h3>👥 Social Engagement</h3>
+                                        <p>Stay connected</p>
+                                    </div>
+                                    <div class="mockup-card">
+                                        <h3>👂 Hearing</h3>
+                                        <p>Address hearing loss</p>
+                                    </div>
+                                    <div class="mockup-card">
+                                        <h3>🩺 Diabetes Control</h3>
+                                        <p>Manage blood sugar</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mockup-section" style="border-left-color: #FF6B6B;">
+                                <h3>📊 Personalized Risk Profile</h3>
+                                <p><strong>Take our 5-10 minute questionnaire</strong> to understand your risk factors and get customized prevention recommendations</p>
+                                <div class="feature-list" style="margin-top: 20px;">
+                                    <div class="feature-item">Family history assessment</div>
+                                    <div class="feature-item">Lifestyle factor evaluation</div>
+                                    <div class="feature-item">Medical history review</div>
+                                    <div class="feature-item">Traffic-light risk output (Low/Medium/High)</div>
+                                </div>
+                                <button class="btn btn-primary" style="margin-top: 20px; background: #FF6B6B; color: white;">Start Risk Assessment</button>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>📅 Build Your Brain-Healthy Day</h3>
+                                <p>Interactive planner to design your ideal daily routine for optimal brain health</p>
+                                <button class="btn btn-primary" style="margin-top: 20px; background: var(--primary); color: white;">Create My Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe">
+                    <h2>📈 Our Research & Progress Page</h2>
+                    <div class="mockup-browser">
+                        <div class="browser-bar">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                            <div class="browser-url">www.yoursite.com/our-research</div>
+                        </div>
+                        <div class="mockup-content">
+                            <div class="mockup-nav">
+                                <div class="mockup-nav-item">Home</div>
+                                <div class="mockup-nav-item">Understand & Prevent</div>
+                                <div class="mockup-nav-item">Self-Checks & Tools</div>
+                                <div class="mockup-nav-item">For Caregivers</div>
+                                <div class="mockup-nav-item">Clinical Trials & Research</div>
+                                <div class="mockup-nav-item active">Our Research & Progress</div>
+                                <div class="mockup-nav-item">Professional Resources</div>
+                                <div class="mockup-nav-item">About & Contact</div>
+                            </div>
+
+                            <div style="background: var(--primary); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+                                <h1 style="color: white; font-size: 2rem; margin-bottom: 15px;">Our Research & Progress</h1>
+                                <p style="font-size: 1.1rem; opacity: 0.95;">Advancing Alzheimer's prevention through rigorous research and innovation</p>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>🎯 Vision & Mission</h3>
+                                <p><strong>Long-term goal:</strong> Make early Alzheimer's prevention accessible to 1 billion people worldwide</p>
+                                <p style="margin-top: 15px;"><strong>Our approach:</strong> Combining cutting-edge neuroscience with accessible digital technology to democratize brain health assessment and prevention</p>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>🔬 Current Research Projects</h3>
+                                <div class="mockup-cards">
+                                    <div class="mockup-card">
+                                        <h3>Digital Cognitive Screening</h3>
+                                        <p><strong>Goal:</strong> Validate digital screening in diverse populations</p>
+                                        <p><strong>Status:</strong> Phase 2 - Data collection</p>
+                                        <p><strong>Lead:</strong> Dr. Sarah Chen, PhD</p>
+                                    </div>
+                                    <div class="mockup-card">
+                                        <h3>Lifestyle Intervention App</h3>
+                                        <p><strong>Goal:</strong> Test effectiveness of personalized prevention plans</p>
+                                        <p><strong>Status:</strong> In Progress - 500 participants</p>
+                                        <p><strong>Lead:</strong> Dr. Raj Patel, MD</p>
+                                    </div>
+                                    <div class="mockup-card">
+                                        <h3>AI Risk Prediction Model</h3>
+                                        <p><strong>Goal:</strong> Develop ML model for early risk detection</p>
+                                        <p><strong>Status:</strong> Published - Journal of Alzheimer's Research</p>
+                                        <p><strong>Lead:</strong> Dr. Maria Rodriguez, PhD</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>📄 Publications & Presentations</h3>
+                                <ul style="padding-left: 20px; margin-top: 15px;">
+                                    <li style="margin-bottom: 10px;"><strong>Chen et al. (2024).</strong> "Digital cognitive screening in diverse populations." <em>Journal of Alzheimer's Research</em>. DOI: 10.1234/jar.2024.001</li>
+                                    <li style="margin-bottom: 10px;"><strong>Patel et al. (2024).</strong> "Lifestyle interventions and cognitive decline prevention." Presented at Alzheimer's Association International Conference.</li>
+                                    <li style="margin-bottom: 10px;"><strong>Rodriguez et al. (2023).</strong> "Machine learning approaches to Alzheimer's risk prediction." <em>Nature Neuroscience</em>.</li>
+                                </ul>
+                                <button class="btn btn-primary" style="margin-top: 20px; background: var(--primary); color: white;">View All Publications</button>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>🤝 Collaborations</h3>
+                                <div class="feature-list">
+                                    <div class="feature-item">Stanford Memory Disorders Center</div>
+                                    <div class="feature-item">AIIMS New Delhi</div>
+                                    <div class="feature-item">Max Hospital Neurology Dept.</div>
+                                    <div class="feature-item">National Institute on Aging</div>
+                                    <div class="feature-item">Alzheimer's Society (UK)</div>
+                                    <div class="feature-item">Gates Foundation</div>
+                                </div>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>🔒 Data & Ethics</h3>
+                                <div class="info-box">
+                                    <h4>Our Commitment to Privacy & Ethics</h4>
+                                    <ul style="padding-left: 20px; margin-top: 10px;">
+                                        <li>HIPAA/GDPR compliant data handling</li>
+                                        <li>Informed consent for all participants</li>
+                                        <li>Ethics committee approval from Johns Hopkins IRB</li>
+                                        <li>All data encrypted and anonymized</li>
+                                        <li>Transparent data usage policies</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="mockup-section">
+                                <h3>💻 Open Science</h3>
+                                <p>We believe in making our tools and data accessible to the research community</p>
+                                <div class="feature-list" style="margin-top: 20px;">
+                                    <div class="feature-item">GitHub: Cognitive screening tools</div>
+                                    <div class="feature-item">Open datasets (anonymized)</div>
+                                    <div class="feature-item">API documentation for researchers</div>
+                                    <div class="feature-item">Reproducible analysis pipelines</div>
+                                </div>
+                                <button class="btn btn-primary" style="margin-top: 20px; background: var(--primary); color: white;">Explore Open Resources</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRIORITIES SECTION -->
+        <div id="priorities" class="content-section">
+            <div class="sitemap">
+                <h2 style="color: var(--primary); margin-bottom: 30px;">⭐ Build Priorities & MVP Roadmap</h2>
+
+                <div class="info-box">
+                    <h4>🎯 Development Strategy</h4>
+                    <p>Focus on building credibility and showcasing your product first, then expand to comprehensive resources.</p>
+                </div>
+
+                <div class="mockup-section" style="border-left-color: #FF6B6B;">
+                    <h3>🚀 MVP - MUST HAVE (Weeks 1-6)</h3>
+                    <div class="feature-list" style="margin-top: 20px;">
+                        <div class="feature-item">
+                            <strong>Home Page</strong>
+                            <p style="margin-top: 8px;">Hero, CTAs, quick cards, impact dashboard placeholder, research highlight</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Self-Checks & Tools - Cognitive Screening</strong>
+                            <p style="margin-top: 8px;">Your HERO product - 10-15 min assessment with report generation</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Understand & Prevent - Basics</strong>
+                            <p style="margin-top: 8px;">What is Alzheimer's, symptoms, prevention pillars overview</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Understand & Prevent - Risk Profile</strong>
+                            <p style="margin-top: 8px;">Personalized questionnaire with risk assessment</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Our Research & Progress</strong>
+                            <p style="margin-top: 8px;">Vision, 2-3 current projects, 1-2 publications, collaborators, ethics statement</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>About & Contact</strong>
+                            <p style="margin-top: 8px;">Team, mission, basic contact form</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Legal Pages</strong>
+                            <p style="margin-top: 8px;">Privacy policy, terms of service, disclaimer</p>
+                        </div>
+                    </div>
+                    <span class="priority-label priority-high">TARGET: 4-6 WEEKS</span>
+                </div>
+
+                <div class="mockup-section" style="border-left-color: #FFA500;">
+                    <h3>📈 Phase 2 - EXPANSION (Months 2-3)</h3>
+                    <div class="feature-list" style="margin-top: 20px;">
+                        <div class="feature-item">
+                            <strong>Daily Brain Health Tracker</strong>
+                            <p style="margin-top: 8px;">Habit logging, dashboard, trends, gamification</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Smart Reminder System</strong>
+                            <p style="margin-top: 8px;">WhatsApp/Email/SMS integration for health reminders</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>For Caregivers Section</strong>
+                            <p style="margin-top: 8px;">Getting started guide, daily care tips, emotional support resources</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Clinical Trials Finder</strong>
+                            <p style="margin-top: 8px;">Search interface with filters, aggregated results from major databases</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Understanding Clinical Trials</strong>
+                            <p style="margin-top: 8px;">Educational content on how trials work</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Expanded Research Section</strong>
+                            <p style="margin-top: 8px;">Full project details, complete publication list, open science resources</p>
+                        </div>
+                    </div>
+                    <span class="priority-label priority-medium">TARGET: MONTHS 2-3</span>
+                </div>
+
+                <div class="mockup-section" style="border-left-color: #4caf50;">
+                    <h3>🎓 Phase 3 - PROFESSIONAL PLATFORM (Months 4-6)</h3>
+                    <div class="feature-list" style="margin-top: 20px;">
+                        <div class="feature-item">
+                            <strong>AI Prevention Assistant</strong>
+                            <p style="margin-top: 8px;">Chatbot with evidence-based responses</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Curated Knowledge Library</strong>
+                            <p style="margin-top: 8px;">Searchable database with filters and summaries</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Build Your Brain-Healthy Day</strong>
+                            <p style="margin-top: 8px;">Interactive daily planner tool</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Professional Resources Section</strong>
+                            <p style="margin-top: 8px;">Portal for clinicians and researchers</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>API Documentation</strong>
+                            <p style="margin-top: 8px;">For researchers to integrate your tools</p>
+                        </div>
+                        <div class="feature-item">
+                            <strong>Advanced Analytics</strong>
+                            <p style="margin-top: 8px;">User tracking dashboard, longitudinal data visualization</p>
+                        </div>
+                    </div>
+                    <span class="priority-label priority-low">TARGET: MONTHS 4-6</span>
+                </div>
+
+                <div class="warning-box">
+                    <h4>💡 Success Metrics for MVP</h4>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li><strong>User Engagement:</strong> 1,000+ cognitive screenings completed in first 3 months</li>
+                        <li><strong>Trust Signals:</strong> 1-2 academic partnerships announced, 1 publication cited</li>
+                        <li><strong>Technical Performance:</strong> Page load < 3 seconds, mobile responsive, 99% uptime</li>
+                        <li><strong>SEO:</strong> Rank on first page for "Alzheimer's prevention tools" and related keywords</li>
+                        <li><strong>User Retention:</strong> 30% of users return within 7 days</li>
+                    </ul>
+                </div>
+
+                <div class="mockup-section">
+                    <h3>🛠️ Technology Stack Recommendations</h3>
+                    <div class="mockup-cards">
+                        <div class="mockup-card">
+                            <h3>Frontend</h3>
+                            <ul style="padding-left: 20px; margin-top: 10px;">
+                                <li>Next.js 14 (React)</li>
+                                <li>Tailwind CSS</li>
+                                <li>TypeScript</li>
+                                <li>Framer Motion (animations)</li>
+                            </ul>
+                        </div>
+                        <div class="mockup-card">
+                            <h3>Backend</h3>
+                            <ul style="padding-left: 20px; margin-top: 10px;">
+                                <li>FastAPI (Python)</li>
+                                <li>PostgreSQL</li>
+                                <li>Redis (caching)</li>
+                                <li>Supabase (auth)</li>
+                            </ul>
+                        </div>
+                        <div class="mockup-card">
+                            <h3>Infrastructure</h3>
+                            <ul style="padding-left: 20px; margin-top: 10px;">
+                                <li>Vercel (hosting)</li>
+                                <li>AWS S3 (storage)</li>
+                                <li>Cloudflare (CDN)</li>
+                                <li>GitHub Actions (CI/CD)</li>
+                            </ul>
+                        </div>
+                        <div class="mockup-card">
+                            <h3>Analytics & Monitoring</h3>
+                            <ul style="padding-left: 20px; margin-top: 10px;">
+                                <li>Google Analytics 4</li>
+                                <li>Mixpanel (events)</li>
+                                <li>Sentry (errors)</li>
+                                <li>Hotjar (UX)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4>🎨 Design System Essentials</h4>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li><strong>Typography:</strong> Inter (body), Playfair Display or Merriweather (headings)</li>
+                        <li><strong>Primary Color:</strong> Medical blue (#2B5AA0 or similar)</li>
+                        <li><strong>Secondary Color:</strong> Calm teal (#4A90A4)</li>
+                        <li><strong>Accent Color:</strong> Hope green (#7BC5AE)</li>
+                        <li><strong>Spacing Scale:</strong> 4, 8, 16, 24, 32, 48, 64px</li>
+                        <li><strong>Border Radius:</strong> 8px (cards), 12px (sections), 24px (buttons)</li>
+                        <li><strong>Shadows:</strong> Subtle (0 2px 8px rgba(0,0,0,0.08)) to pronounced (0 8px 32px rgba(0,0,0,0.12))</li>
+                    </ul>
+                </div>
+
+                <div class="mockup-section" style="border-left-color: #2196f3;">
+                    <h3>📝 Content Development Priority</h3>
+                    <p><strong>Week 1-2:</strong> Core educational content (What is Alzheimer's, symptoms, risk factors)</p>
+                    <p><strong>Week 2-3:</strong> Cognitive screening questions and logic</p>
+                    <p><strong>Week 3-4:</strong> Risk assessment questionnaire</p>
+                    <p><strong>Week 4-5:</strong> Research content (projects, publications, team bios)</p>
+                    <p><strong>Week 5-6:</strong> Legal docs, disclaimers, privacy policy</p>
+                    
+                    <div class="info-box" style="margin-top: 20px;">
+                        <h4>Content Partnerships to Consider</h4>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>License content from NIH/NIA</li>
+                            <li>Partner with Alzheimer's Society for UK content</li>
+                            <li>Collaborate with local neurology departments for India-specific info</li>
+                            <li>Hire medical writer for accuracy review</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+            
+            // Update button states
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
